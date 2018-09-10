@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KoinSampleProject</string>
+    <string name="input_username_github">Input username github</string>
+    <string name="search">Search</string>
+</resources>
