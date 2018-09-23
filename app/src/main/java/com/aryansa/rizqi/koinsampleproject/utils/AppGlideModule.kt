@@ -10,7 +10,7 @@ import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
 
 @GlideModule
-class AppGlideModule: AppGlideModule() {
+class MyGlideModule: AppGlideModule() {
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         super.applyOptions(context, builder)
         val req = RequestOptions()

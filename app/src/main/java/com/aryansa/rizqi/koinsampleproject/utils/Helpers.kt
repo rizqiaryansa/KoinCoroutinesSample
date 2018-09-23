@@ -17,7 +17,7 @@ data class ApiListRepository(val listRepo: RepoModel)
 fun Context.isOnline(): Boolean {
     val activeNetworkInfo: NetworkInfo? = (getSystemService(Context.CONNECTIVITY_SERVICE)
             as ConnectivityManager).activeNetworkInfo
-    return activeNetworkInfo?.isConnectedOrConnecting ?: false
+    return activeNetworkInfo?.isConnected ?: false
 }
 
 fun ViewGroup.inflate(resId: Int): View = LayoutInflater.from(context).

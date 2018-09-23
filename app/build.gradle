@@ -43,6 +43,8 @@ ext {
     glideVersion = '4.8.0'
     coroutines_version = '0.22.3'
     gson_converter_factory_version = '2.3.0'
+    rxJavaVersion = '2.1.8'
+    rxAndroidVersion = '2.0.1'
 }
 
 androidExtensions {
@@ -70,7 +72,12 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okHttp3Version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp3Version"
 
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
     implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
+    kapt "android.arch.lifecycle:compiler:$archLifecycleVersion"
+    kapt "com.android.databinding:compiler:$dataBindingCompilerVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
     testImplementation "android.arch.core:core-testing:$archLifecycleVersion"
 
@@ -82,12 +89,23 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.18.3'
+    testImplementation "org.mockito:mockito-inline:2.18.3"
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:2.2.2") {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
 }
 repositories {
     mavenCentral()

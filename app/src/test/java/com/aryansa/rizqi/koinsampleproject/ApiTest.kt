@@ -12,6 +12,8 @@ import org.junit.Test
 import org.koin.standalone.StandAloneContext
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.verify
 
 class ApiTest: KoinTest {
     val repository: Repository by inject()
@@ -29,8 +31,9 @@ class ApiTest: KoinTest {
     @Test
     fun testProfile() {
         launch {
+            val apiRepository = mock(Repository::class.java)
             val profileCall = repository.getUserGithub("rizqiaryansa")
-            profileCall.await()
+            verify(apiRepository).getUserGithub("rizqiaryansa")
         }
     }
 }
