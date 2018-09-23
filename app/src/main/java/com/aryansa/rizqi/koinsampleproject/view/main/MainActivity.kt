@@ -39,10 +39,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUserGithub() {
         mainVm.listDataUserGithub.observe(this, Observer { it ->
-//            Glide.with(this).load(it?.avatar_url).into(avatarUser)
-//            nameUser.text = it?.name
-//            locationUser.text = it?.location
-            it?.let { ItemMainViewModel().showData(it) }
+            Glide.with(this).load(it?.avatar_url).into(avatarUser)
+            nameUser.text = it?.name
+            locationUser.text = it?.location
+//            it?.let { ItemMainViewModel().showData(it) }
 
             pbContainer.visibility = View.GONE
         })

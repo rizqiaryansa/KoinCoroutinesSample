@@ -47,23 +47,19 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/avatarUser"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/image_placeholder"
-                bind:loadImage="@{repoUser.avatarUrl}"/>
+                android:layout_height="100dp" />
 
             <TextView
                 android:id="@+id/nameUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@{repoUser.title}"/>
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:id="@+id/locationUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{repoUser.location}"
                 />
 
         </LinearLayout>
