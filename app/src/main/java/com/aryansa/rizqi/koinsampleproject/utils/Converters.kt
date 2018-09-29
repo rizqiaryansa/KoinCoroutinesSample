@@ -4,8 +4,11 @@ import android.animation.Animator
 import android.databinding.BindingAdapter
 import android.support.v7.widget.AppCompatImageView
 import android.view.View
+import com.aryansa.rizqi.koinsampleproject.R
 import com.bumptech.glide.GenericTransitionOptions
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import de.hdodenhof.circleimageview.CircleImageView
 
 class Converters {
 
@@ -16,6 +19,18 @@ class Converters {
             Glide.with(imageView.context.applicationContext)
                     .load(imageUrl)
                     .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
+                    .into(imageView)
+        }
+
+        @JvmStatic
+        @BindingAdapter("loadImageCircle")
+        fun loadImageCircle(imageView: CircleImageView, imageUrl: String?) {
+            Glide.with(imageView.context.applicationContext)
+                    .load(imageUrl)
+                    .apply(RequestOptions()
+                            .placeholder(R.drawable.image_placeholder)
+                            .error(R.drawable.image_placeholder)
+                            .dontAnimate())
                     .into(imageView)
         }
 
